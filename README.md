@@ -2,7 +2,11 @@
 
 A FastAPI-based middleware service that provides integration with Adpoint customer management system for AI agents in the advertising team.
 
-## Overview
+## Solution Overview
+
+<img width="747" height="333" alt="image" src="https://github.com/user-attachments/assets/2c08d945-fa4b-4a46-af6b-fef059ece2cd" />
+
+## API Service
 
 This service acts as a secure API layer between AI agents and the Adpoint customer database, enabling automated customer and contact information retrieval for prospecting activities.
 
