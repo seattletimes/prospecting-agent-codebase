@@ -1,6 +1,6 @@
 # Prospecting Agent (Custom GPT) Setup Guide
 
-This guide provides step-by-step instructions for creating a **Seattle Times Lead Scoring & Business Research Copilot** as a custom GPT in ChatGPT Enterprise. This AI agent helps sales representatives identify, evaluate, and pursue high-potential advertising leads using data-backed analysis and strategic insights.
+This guide provides step-by-step instructions for creating a **News Times Lead Scoring & Business Research Copilot** as a custom GPT in ChatGPT Enterprise. This AI agent helps sales representatives identify, evaluate, and pursue high-potential advertising leads using data-backed analysis and strategic insights.
 
 ## Overview
 
@@ -63,7 +63,7 @@ Before creating the custom GPT, you must deploy the API that powers the CRM inte
 ### Step 4: Configure Basic Information
 
 #### Name and Description
-- **Name:** `Seattle Times Lead Scoring & Business Research Copilot`
+- **Name:** `News Times Lead Scoring & Business Research Copilot`
 - **Description:** `AI assistant for Seattle Times sales reps to identify, evaluate, and pursue high-potential advertising leads using data-backed analysis and CRM integration.`
 
 #### Instructions
@@ -136,7 +136,7 @@ Enable the following capabilities:
 2. **Save Configuration:**
    - Click "Save" in the top right
    - Choose "Only me" for now
-   - Name your GPT: `Seattle Times Lead Scoring & Business Research Copilot`
+   - Name your GPT: `News Times Lead Scoring & Business Research Copilot`
 
 ### Step 10: Test the Custom GPT
 

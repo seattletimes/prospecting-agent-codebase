@@ -261,6 +261,8 @@ This project provides a complete AI-powered prospecting solution consisting of:
 3. **Test the Integration**: Use the provided test scenarios
 4. **Train Your Team**: Share best practices and usage guidelines
 
+Note: Replace the news organization and the CRM name to your organization in the code as well as prompts and files before running this project in your environment
+
 ## Support
 
 For issues or questions, please contact the development team or create an issue in the repository.
