@@ -1,0 +1,149 @@
+openapi: 3.1.0
+info:
+  title: Adpoint Customer API
+  version: 1.0.0
+  description: API for retrieving Adpoint customer data using a name-based query.
+
+servers:
+  - url: https://your-deployed-api.azurewebsites.net
+
+paths:
+  /search_adpoint_customer:
+    post:
+      summary: Retrieve Adpoint customer details
+      description: Returns a list of customer records from the Adpoint system filtered by customer name.
+      operationId: search_adpoint_customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdpointCustomerRequest'
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: List of matching customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdpointCustomerResponse'
+        '401':
+          description: Invalid API Key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+
+  schemas:
+    AdpointCustomerRequest:
+      type: object
+      properties:
+        customerName:
+          type: string
+          description: Name of the customer to search for
+          example: "Acme Corp"
+      required:
+        - customerName
+
+    AdpointCustomerResponse:
+      type: object
+      properties:
+        CustomerID:
+          type: integer
+          example: 123456
+        CustomerName:
+          type: string
+          example: "Acme Corp"
+        CustomerOwner:
+          type: string
+          example: "John Doe"
+        Active:
+          type: boolean
+          example: true
+        LocalSegment:
+          type: string
+          example: "Retail > Banks"
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+      required:
+        - CustomerID
+        - CustomerName
+        - CustomerOwner
+        - Active
+        - LocalSegment
+        - contacts
+
+    Contact:
+      type: object
+      properties:
+        ContactID:
+          type: integer
+          example: 31431
+        CustomerID:
+          type: integer
+          example: 123456
+        LastName:
+          type: string
+          example: "Smith"
+        FirstName:
+          type: string
+          example: "Jane"
+        MiddleName:
+          type: string
+          example: "A."
+        Position:
+          type: string
+          example: "Marketing Director"
+        Phone:
+          type: string
+          example: "123-456-7890"
+        Mobile:
+          type: string
+          example: "123-555-7890"
+        Mail:
+          type: string
+          example: "jane.smith@example.com"
+        Active:
+          type: boolean
+          example: true
+        ContactCategory:
+          type: string
+          example: "Decision Maker - Primary"
+      required:
+        - ContactID
+        - CustomerID
+        - LastName
+        - FirstName
+        - MiddleName
+        - Position
+        - Phone
+        - Mobile
+        - Mail
+        - Active
+        - ContactCategory
+
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
